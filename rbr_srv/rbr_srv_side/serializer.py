@@ -12,4 +12,4 @@ class ShortServerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Server
-        fields = ['ip_address','server_is_active']
+        fields = ['id','ip_address','server_is_active']
