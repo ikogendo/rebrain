@@ -1,0 +1,38 @@
+name: "Building django images"
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Docker image version (e.g. v1.0.1)'
+        required: false
+  push:
+    paths:
+      - 'caddy-default/*'
+jobs:   
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    env:
+      IMAGE_TAG: latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Override IMAGE_TAG if input provided
+        if: ${{ github.event.inputs.version != '' }}
+        run: echo "IMAGE_TAG=${{ github.event.inputs.version }}" >> $GITHUB_ENV
+      
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Docker image
+        run: |
+          docker build . --file caddy-default/Dockerfile --tag ghcr.io/${{ github.repository }}/django-server:$IMAGE_TAG
+          docker push ghcr.io/${{ github.repository }}/django-server:$IMAGE_TAG
