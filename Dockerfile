@@ -1,5 +1,5 @@
-FROM ubuntu/python:3.12-24.04_stable
-RUN  apt update && apt install -y python3-django python3-djangorestframework
+FROM ubuntu:noble
+RUN apt-get update && apt-get install -y  python3 python3-pip python3-django python3-djangorestframework && rm -rf /var/lib/apt/lists/*
 RUN  /app/rbr_srv/ && cd /app/rbr_srv/
 WORKDIR /app/rbr_srv
 COPY rbr_srv/* /app/rbr_srv/
