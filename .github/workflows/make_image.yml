@@ -7,7 +7,7 @@ on:
         required: false
   push:
     paths:
-      - 'caddy-default/*'
+      - 'Dockerfile'
 jobs:   
   build:
     runs-on: ubuntu-latest
