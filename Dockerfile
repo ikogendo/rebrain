@@ -1,4 +1,4 @@
-FROM ubuntu/python:3.12-22.04_stable
+FROM ubuntu/python:latest
 RUN  apt update && apt upgrade -y && apt install python3-django python3-djangorestframework
 RUN  /app/rbr_srv/ && cd /app/rbr_srv/
 WORKDIR /app/rbr_srv
