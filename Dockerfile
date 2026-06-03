@@ -4,5 +4,5 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 RUN mkdir -p /app/rbr_srv && cd /app/rbr_srv/
 WORKDIR /app/rbr_srv
 COPY rbr_srv/* /app/rbr_srv/
-CMD ["python", "/app/rbr_srv/manager.py","runserver","8000"]
+CMD ["python", "/app/rbr_srv/manage.py","runserver","8000"]
 EXPOSE 8000
