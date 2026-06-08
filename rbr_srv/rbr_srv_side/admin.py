@@ -6,4 +6,4 @@ from .models import Server
 
 @admin.register(Server)
 class ServerAdmin(admin.ModelAdmin):
-    list_display = ('ip_address', 'name', 'description','server_is_active')
+    list_display = ('ip_address', 'name', 'description','functional','server_is_active')
