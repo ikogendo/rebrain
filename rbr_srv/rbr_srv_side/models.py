@@ -9,7 +9,7 @@ class Server(models.Model):
     description = models.TextField('description', max_length=255, default='no_description')
     #server_is_active = models.TextField('isActive', max_length=255, default='False') 
     server_is_active = models.BooleanField('isActive', default='False')
-
+    functional = models.TextField('what is functional  by this  server :', default='Nothing')
     class Meta:
         managed = True
         verbose_name = 'Server'

@@ -6,7 +6,7 @@ class ServerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Server
-        fields = ['id', 'ip_address', 'description', 'name','server_is_active']
+        fields = ['id', 'ip_address', 'description', 'functional', 'name','server_is_active']
 
 class ShortServerSerializer(serializers.ModelSerializer):
 
