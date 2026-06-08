@@ -9,6 +9,7 @@ on:
     paths:
       - 'Dockerfile'
       - 'rbr_srv/rbr_srv/*'
+      - 'rbr_srv/rbr_srv_side/*'
 jobs:   
   build:
     runs-on: ubuntu-latest
