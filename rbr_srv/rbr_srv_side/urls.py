@@ -9,3 +9,5 @@ urlpatterns = [
     path('servers/add', ServerAddView.as_view()),
     path('servers/status', ServerViewSet.as_view()),
 ]
+
+#
