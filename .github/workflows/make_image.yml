@@ -8,7 +8,7 @@ on:
   push:
     paths:
       - 'Dockerfile'
-      - 'rbr_srv/*'
+      - 'rbr_srv/rbr_srv/*'
 jobs:   
   build:
     runs-on: ubuntu-latest
